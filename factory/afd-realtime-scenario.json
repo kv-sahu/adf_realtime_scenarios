@@ -1,0 +1,9 @@
+{
+	"name": "afd-realtime-scenario",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4f49a35d-c08a-4fba-b8b6-528f3eb29877",
+		"tenantId": "acb7de52-9d54-4abe-9863-992ac5f83eb2"
+	}
+}
