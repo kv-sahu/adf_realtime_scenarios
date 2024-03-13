@@ -1,0 +1,28 @@
+{
+	"name": "DS_fixedlenfile_INPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_fixedlenfile_INPUT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "emp.txt",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "1000kavita     MP1112233445",
+				"type": "String"
+			}
+		]
+	}
+}

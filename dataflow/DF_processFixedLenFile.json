@@ -1,0 +1,61 @@
+{
+	"name": "DF_processFixedLenFile",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_fixedlenfile_INPUT",
+						"type": "DatasetReference"
+					},
+					"name": "SRCfixedLenTxt"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_fixedlenfile_OUTPUT",
+						"type": "DatasetReference"
+					},
+					"name": "empsink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {1000kavita     MP1112233445} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SRCfixedLenTxt",
+				"SRCfixedLenTxt derive(empID = ERROR_FUNCTION(''),",
+				"          empName = ERROR_FUNCTION(''),",
+				"          state = ERROR_FUNCTION(''),",
+				"          mobile = ERROR_FUNCTION('')) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          empID,",
+				"          empName,",
+				"          state,",
+				"          mobile",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> empsink"
+			]
+		}
+	}
+}
