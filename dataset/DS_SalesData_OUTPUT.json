@@ -1,0 +1,23 @@
+{
+	"name": "DS_SalesData_OUTPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SalesData_OUTPUT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "NewFiles",
+				"fileSystem": "salesdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
