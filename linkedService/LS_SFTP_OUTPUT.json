@@ -1,0 +1,22 @@
+{
+	"name": "LS_SFTP_OUTPUT",
+	"properties": {
+		"annotations": [],
+		"type": "Sftp",
+		"typeProperties": {
+			"host": "https://sftpadlsstorage.blob.core.windows.net/",
+			"port": 22,
+			"skipHostKeyValidation": true,
+			"authenticationType": "Basic",
+			"userName": "sftpadlsstorage.saadmin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_AzureKeyVault_OUTPUT",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sftp-pwd"
+			}
+		}
+	}
+}
