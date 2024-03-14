@@ -1,0 +1,10 @@
+{
+	"name": "ls_keyvault_output",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kvstoreadlssftp.vault.azure.net/"
+		}
+	}
+}
